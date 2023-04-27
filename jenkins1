@@ -14,12 +14,12 @@ pipeline {
                 
                     // Deploy application to OCP cluster using 'oc' command and deployment YAML file
                     sh """
-                        oc login --token=$OCP_stoken --namespace=zfw-jenkins-ocpadmins
+                        oc login https://api.1cld-ocp6.pok.stglabs.ibm.com:6443 --token=$OCP_stoken --namespace=zfw-jenkins-ocpadmins
                         oc project zfw-jenkins-ocpadmins
                         oc apply -f my-app-deployment.yaml
                     """
                     
-                    //sh 'oc login --token=$OCP_stoken oc project zfw-jenkins-ocpadmins --insecure-skip-tls-verify && oc apply -f application-deployment.yaml'
+                    //sh 'oc login  --token=$OCP_stoken oc project zfw-jenkins-ocpadmins --insecure-skip-tls-verify && oc apply -f application-deployment.yaml'
                 }
             }
         }
