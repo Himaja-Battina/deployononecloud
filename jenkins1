@@ -1,0 +1,20 @@
+pipeline {
+    agent{
+    label "POK OpenShift on Z"
+    }
+    stages {
+        stage('Deploy Application') {
+            steps {
+            
+                // Install 'oc' command using 'openshift-client-plugin'
+               
+                // Configure OCP credentials
+                
+                    // Deploy application to OCP cluster using 'oc' command and deployment YAML file
+                    
+                    sh 'oc project zfw-jenkins-ocpadmins --insecure-skip-tls-verify && oc apply -f application-deployment.yaml'
+                
+            }
+        }
+    }
+}
