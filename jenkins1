@@ -1,11 +1,11 @@
 pipeline {
     agent{
-    label "PokOpenShiftOnZ"
+    label "onecloud"
     }
     stages {
         stage('Deploy Application') {
             steps {
-            withCredentials([string(credentialsId: 'zfw-ocpadmin-jenkins-sa', variable: 'OCP_stoken')]){
+            withCredentials([string(credentialsId: 'token-sa-jenkins-ocp', variable: 'OCP_stoken')]){
                    
                                  
                 // Install 'oc' command using 'openshift-client-plugin'
