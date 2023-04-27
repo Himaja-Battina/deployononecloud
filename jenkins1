@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Deploy Application') {
             steps {
-            withCredentials([string(credentialsId: 'Token of service account in Jenkins in zfw-jenkins-ocpadmins namespace', variable: 'OCP_stoken')]){
+            withCredentials([string(credentialsId: 'zfw-ocpadmin-jenkins-sa', variable: 'OCP_stoken')]){
                    
                                  
                 // Install 'oc' command using 'openshift-client-plugin'
