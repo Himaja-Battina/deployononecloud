@@ -5,15 +5,17 @@ pipeline {
     stages {
         stage('Deploy Application') {
             steps {
-            
+            withCredentials([string(credentialsId: 'Token of service account in Jenkins in zfw-jenkins-ocpadmins namespace', variable: 'OCP_stoken')]){
+                   
+                                 
                 // Install 'oc' command using 'openshift-client-plugin'
                
                 // Configure OCP credentials
                 
                     // Deploy application to OCP cluster using 'oc' command and deployment YAML file
                     
-                    sh 'oc project zfw-jenkins-ocpadmins --insecure-skip-tls-verify && oc apply -f application-deployment.yaml'
-                
+                    sh 'oc login --token=$OCP_stoken oc project zfw-jenkins-ocpadmins --insecure-skip-tls-verify && oc apply -f application-deployment.yaml'
+                }
             }
         }
     }
