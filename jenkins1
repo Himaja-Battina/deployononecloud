@@ -13,8 +13,13 @@ pipeline {
                 // Configure OCP credentials
                 
                     // Deploy application to OCP cluster using 'oc' command and deployment YAML file
+                    sh """
+                        oc login --token=$OCP_stoken --namespace=zfw-jenkins-ocpadmins
+                        oc project zfw-jenkins-ocpadmins
+                        oc apply -f my-app-deployment.yaml
+                    """
                     
-                    sh 'oc login --token=$OCP_stoken oc project zfw-jenkins-ocpadmins --insecure-skip-tls-verify && oc apply -f application-deployment.yaml'
+                    //sh 'oc login --token=$OCP_stoken oc project zfw-jenkins-ocpadmins --insecure-skip-tls-verify && oc apply -f application-deployment.yaml'
                 }
             }
         }
