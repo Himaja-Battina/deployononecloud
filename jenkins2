@@ -15,7 +15,7 @@ pipeline {
                     // Deploy application to OCP cluster using 'oc' command and deployment YAML file
                     sh """
                         oc login https://api.1cld-ocp6.pok.stglabs.ibm.com:6443 --token=$OCP_stoken --namespace=jenkins-ocp --insecure-skip-tls-verify
-                        oc project jenkins-ocp
+                      
                         oc apply -f my-app-deployment.yaml
                     """
                     
