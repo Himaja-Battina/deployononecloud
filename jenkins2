@@ -1,6 +1,6 @@
 pipeline {
     agent{
-    label "onecloud"
+    label "PokOpenShiftOnZ"
     }
     stages {
         stage('Deploy Application') {
