@@ -16,7 +16,7 @@ pipeline {
                     sh """
                         oc login https://api.1cld-ocp6.pok.stglabs.ibm.com:6443 --token=$OCP_stoken --namespace=jenkins-ocp --insecure-skip-tls-verify
                       
-                        oc apply -f my-app-deployment.yaml
+                        oc apply -f application-deployment.yaml
                     """
                     
                     //sh 'oc login  --token=$OCP_stoken oc project zfw-jenkins-ocpadmins --insecure-skip-tls-verify && oc apply -f application-deployment.yaml'
